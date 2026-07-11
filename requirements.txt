@@ -1,0 +1,16 @@
+pandas
+numpy
+faker
+boto3
+python-dotenv
+snowflake-connector-python
+dbt-core
+dbt-snowflake
+great-expectations
+apache-airflow
+streamlit
+scikit-learn
+matplotlib
+jupyter
+pytest
+ruff
