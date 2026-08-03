@@ -18,3 +18,4 @@ datasets
 pyarrow
 PyYAML
 snowflake-sqlalchemy
+plotly
