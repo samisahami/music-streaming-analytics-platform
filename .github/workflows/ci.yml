@@ -55,21 +55,20 @@ jobs:
     - name: Create CI dbt profile
       run: |
         mkdir -p ~/.dbt
-        cat > ~/.dbt/profiles.yml <<'EOF'
-        music_analytics:
-          target: dev
-          outputs:
-            dev:
-              type: snowflake
-              account: dummy_account
-              user: dummy_user
-              password: dummy_password
-              role: dummy_role
-              database: MUSIC_ANALYTICS
-              warehouse: COMPUTE_WH
-              schema: BRONZE
-              threads: 1
-        EOF 
+        printf '%s\n' \
+        'music_analytics:' \
+        '  target: dev' \
+        '  outputs:' \
+        '    dev:' \
+        '      type: snowflake' \
+        '      account: dummy_account' \
+        '      user: dummy_user' \
+        '      password: dummy_password' \
+        '      role: dummy_role' \
+        '      database: MUSIC_ANALYTICS' \
+        '      warehouse: COMPUTE_WH' \
+        '      schema: BRONZE' \
+        '      threads: 1' \
 
     - name: dbt dependencies
       working-directory: music_analytics
