@@ -1,57 +1,52 @@
 # 🎵 End-to-End Music Streaming Analytics Platform
 
-A modern analytics engineering platform that ingests, validates, transforms, and analyzes music streaming data using Python, Snowflake, dbt, Great Expectations, Airflow, Streamlit, and GitHub Actions.
+A production-inspired Analytics Engineering project that ingests, validates, transforms, and analyzes music streaming data using Python, AWS, Snowflake, dbt, Great Expectations, Apache Airflow, Streamlit, and GitHub Actions.
 
 ![CI](https://github.com/samisahami/music-streaming-analytics-platform/actions/workflows/ci.yml/badge.svg)
 
 ---
 
-## 📖 Project Overview
+# 📖 Project Overview
 
-The Music Streaming Analytics Platform simulates a production-grade analytics ecosystem for a modern music streaming company.
+The Music Streaming Analytics Platform simulates the modern cloud data stack used by companies such as Spotify, Apple Music, and Amazon Music.
 
-The platform ingests user listening events, stores raw data in the cloud, transforms data into trusted analytical models, validates data quality, orchestrates automated pipelines, powers executive dashboards, and enables machine learning workflows.
+The platform ingests user listening events, stores raw data in the cloud, validates data quality, transforms data into analytics-ready models, orchestrates automated workflows, powers executive dashboards, and prepares curated datasets for machine learning.
 
-Rather than focusing on a single technology, this project demonstrates how modern data platforms are designed from the ground up to support analytics, business intelligence, and predictive modeling.
+Rather than demonstrating a single technology, this project showcases how modern analytics platforms are engineered end-to-end using industry-standard tools and best practices.
 
 ---
-
 
 # 📊 Dashboard Showcase
 
-### Executive Overview
+### Executive Dashboard
 
-![Executive](docs/streamlit_app.png)
+![Executive Dashboard](docs/streamlit_app.png)
 
 ---
 
-## 🚀 Live Demo
+# 🚀 Live Demo
 
 👉 https://music-streaming-analytics.streamlit.app
 
-## 🎯 Objectives
+---
+
+# 🎯 Objectives
 
 - Build a scalable cloud analytics platform
 - Model event-driven streaming data
-- Design a modern dimensional warehouse
-- Implement Analytics Engineering best practices using dbt
+- Implement dimensional data modeling
+- Apply Analytics Engineering best practices using dbt
 - Automate workflows using orchestration
 - Validate data quality throughout the pipeline
 - Develop executive dashboards
 - Create ML-ready feature datasets
-- Demonstrate production-grade engineering principles
+- Demonstrate production-ready engineering principles
 
 ---
 
 # 🏗️ Architecture
 
-# 🎵 End-to-End Music Streaming Analytics Platform
-
-A modern analytics engineering platform that ingests, validates, transforms, and analyzes music streaming data using Python, Snowflake, dbt, Great Expectations, Airflow, Streamlit, and GitHub Actions.
-
-![CI](https://github.com/samisahami/music-streaming-analytics-platform/actions/workflows/ci.yml/badge.svg)
-
-```
+```text
                   Public Music Metadata
                            +
                  Generated Streaming Events
@@ -67,14 +62,14 @@ A modern analytics engineering platform that ingests, validates, transforms, and
                            │
                            ▼
                     dbt Transformations
-                 (Staging → Intermediate → Marts)
+              (Staging → Intermediate → Marts)
                            │
                 ┌──────────┴──────────┐
                 ▼                     ▼
-        Business Marts         Feature Tables
+         Business Marts         Feature Tables
                 │                     │
                 ▼                     ▼
-          Streamlit Dashboard    Jupyter ML
+        Streamlit Dashboard     Jupyter ML
                 │
                 ▼
          Executive Analytics
@@ -89,21 +84,21 @@ A modern analytics engineering platform that ingests, validates, transforms, and
 | Programming | Python |
 | Cloud Storage | AWS S3 |
 | Data Warehouse | Snowflake |
-| Transformations | dbt Core |
+| Data Modeling | dbt Core |
 | Orchestration | Apache Airflow |
-| Data Validation | Great Expectations + dbt Tests |
+| Data Quality | Great Expectations + dbt Tests |
 | Machine Learning | Scikit-Learn |
+| Visualization | Streamlit |
 | Notebooks | Jupyter |
-| Dashboard | Streamlit |
 | Containers | Docker |
 | CI/CD | GitHub Actions |
-| Version Control | Git |
+| Version Control | Git & GitHub |
 
 ---
 
 # 📂 Project Structure
 
-```
+```text
 music-streaming-analytics-platform/
 
 ├── configs/
@@ -120,7 +115,7 @@ music-streaming-analytics-platform/
 ├── scripts/
 ├── tests/
 ├── .github/
-├── docker-compose.yml
+├── docker-compose.yaml
 ├── requirements.txt
 └── README.md
 ```
@@ -129,41 +124,46 @@ music-streaming-analytics-platform/
 
 # 🧠 Business Domain
 
-The platform models a fictional music streaming company inspired by real-world products such as Spotify, Apple Music, Amazon Music, and YouTube Music.
+This project models a fictional music streaming company inspired by platforms such as:
 
-The project combines:
+- Spotify
+- Apple Music
+- Amazon Music
+- YouTube Music
+
+The analytical environment combines:
 
 - Public music metadata
-- Synthetic user behavior
-- Streaming events
+- Synthetic users
+- Listening events
 - Subscription activity
 - Recommendation interactions
+- Revenue metrics
 - Product analytics
-- Revenue analytics
 
-This hybrid approach creates realistic analytical scenarios while respecting proprietary platform data.
+This hybrid approach creates realistic analytical scenarios while avoiding proprietary datasets.
 
 ---
 
 # 📊 Business Questions
 
-The platform is designed to answer questions such as:
+The platform answers questions such as:
 
 - How many Daily Active Users (DAU) do we have?
 - Which artists are trending?
-- Which tracks have the highest completion rates?
-- What is our Premium conversion rate?
+- Which songs have the highest completion rate?
+- What is Premium conversion?
 - Which recommendations drive engagement?
 - What factors contribute to churn?
 - Which devices generate the highest listening time?
 - What is customer lifetime value?
-- How do listening habits differ by geography?
+- How do listening behaviors vary geographically?
 
 ---
 
 # 🧱 Data Architecture
 
-The project follows a Medallion Architecture.
+The warehouse follows the Medallion Architecture.
 
 ### Bronze
 
@@ -175,19 +175,19 @@ Cleaned, standardized, validated datasets.
 
 ### Gold
 
-Business-ready dimensional models and analytical marts.
+Business-ready dimensional models and analytics marts.
 
 ### Feature Layer
 
-Curated datasets for machine learning workflows.
+Machine learning feature tables.
 
 ---
 
 # 📈 Analytics Engineering
 
-The warehouse follows dimensional modeling principles.
+The warehouse follows Kimball dimensional modeling principles.
 
-Dimension tables include:
+### Dimension Tables
 
 - Users
 - Artists
@@ -197,7 +197,7 @@ Dimension tables include:
 - Subscriptions
 - Date
 
-Fact tables include:
+### Fact Tables
 
 - Listening Events
 - Search Events
@@ -205,13 +205,13 @@ Fact tables include:
 - Recommendation Events
 - Payment Events
 
-Business marts provide curated datasets for reporting and analytics.
+Business marts expose curated datasets for reporting, dashboards, and downstream analytics.
 
 ---
 
 # 🤖 Machine Learning
 
-The project includes notebooks for:
+Included notebooks demonstrate:
 
 - Exploratory Data Analysis
 - Customer Segmentation
@@ -219,13 +219,13 @@ The project includes notebooks for:
 - Recommendation Features
 - Revenue Forecasting
 
-Machine learning models consume curated feature tables generated from the analytics platform rather than raw source data.
+Models consume curated analytical tables instead of raw transactional data, reflecting production analytics workflows.
 
 ---
 
 # ✅ Data Quality
 
-Data quality is enforced using:
+Data quality is enforced through:
 
 - dbt Tests
 - Great Expectations
@@ -240,12 +240,12 @@ Data quality is enforced using:
 
 GitHub Actions automatically:
 
-- Run Python checks
+- Install project dependencies
+- Run Python validation
 - Execute dbt tests
 - Validate data quality
-- Lint SQL
-- Lint Python
-- Build project documentation
+- Lint Python code
+- Verify project builds successfully
 
 ---
 
@@ -258,19 +258,18 @@ Project documentation includes:
 - Warehouse Architecture
 - Star Schema
 - Data Dictionary
-- Metric Definitions
-- Architecture Decisions
+- Architecture Diagrams
 - Deployment Guide
 
 ---
 
 # 🚀 Future Enhancements
 
-Potential future enhancements include:
+Potential future improvements include:
 
 - Kafka event streaming
-- Real-time dashboards
-- Feature Store
+- Near real-time dashboards
+- Feature Store integration
 - ML model deployment
 - A/B testing framework
 - Recommendation engine
@@ -280,4 +279,4 @@ Potential future enhancements include:
 
 # 👨‍💻 Author
 
-Built as a production-inspired Analytics Engineering, Data Engineering, and Applied Data Science portfolio project demonstrating modern cloud-native data platform design and implementation.
+Built by **Sam Sahami** as a production-inspired portfolio project demonstrating modern Analytics Engineering, Data Engineering, Business Intelligence, and Applied Machine Learning using today's cloud-native data stack.
