@@ -1,6 +1,8 @@
-# 🎵 Music Streaming Analytics Platform
+# 🎵 End-to-End Music Streaming Analytics Platform
 
-> An end-to-end cloud-native Analytics Engineering and Data Engineering platform built using modern industry best practices.
+A modern analytics engineering platform that ingests, validates, transforms, and analyzes music streaming data using Python, Snowflake, dbt, Great Expectations, Airflow, Streamlit, and GitHub Actions.
+
+![CI](https://github.com/samisahami/music-streaming-analytics-platform/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -13,6 +15,19 @@ The platform ingests user listening events, stores raw data in the cloud, transf
 Rather than focusing on a single technology, this project demonstrates how modern data platforms are designed from the ground up to support analytics, business intelligence, and predictive modeling.
 
 ---
+
+
+# 📊 Dashboard Showcase
+
+### Executive Overview
+
+![Executive](docs/streamlit_app.png)
+
+---
+
+## 🚀 Live Demo
+
+👉 https://music-streaming-analytics.streamlit.app
 
 ## 🎯 Objectives
 
@@ -29,6 +44,12 @@ Rather than focusing on a single technology, this project demonstrates how moder
 ---
 
 # 🏗️ Architecture
+
+# 🎵 End-to-End Music Streaming Analytics Platform
+
+A modern analytics engineering platform that ingests, validates, transforms, and analyzes music streaming data using Python, Snowflake, dbt, Great Expectations, Airflow, Streamlit, and GitHub Actions.
+
+![CI](https://github.com/samisahami/music-streaming-analytics-platform/actions/workflows/ci.yml/badge.svg)
 
 ```
                   Public Music Metadata
