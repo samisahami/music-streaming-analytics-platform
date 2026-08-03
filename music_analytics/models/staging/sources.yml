@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: MUSIC_ANALYTICS
+    schema: BRONZE
+    tables:
+      - name: bronze_music_metadata
+        identifier: BRONZE_MUSIC_METADATA
+
+      - name: stream_events
+        identifier: STREAM_EVENTS

@@ -1,0 +1,16 @@
+project:
+  name: Music Streaming Platform
+  environment: development
+
+datasets:
+  music_metadata:
+    source: huggingface
+    dataset: maharshipandya/spotify-tracks-dataset
+
+aws: 
+  region: us-east-1
+
+snowflake:
+  database: MUSIC_ANALYTICS
+  schema: BRONZE
+  warehouse: COMPUTE_WH

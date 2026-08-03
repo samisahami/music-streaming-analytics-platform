@@ -14,3 +14,7 @@ matplotlib
 jupyter
 pytest
 ruff
+datasets
+pyarrow
+PyYAML
+snowflake-sqlalchemy
