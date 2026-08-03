@@ -70,6 +70,8 @@ jobs:
         '      schema: BRONZE' \
         '      threads: 1' \
 
+        > ~/.dbt/profiles.yml
+
     - name: dbt dependencies
       working-directory: music_analytics
       run: |
