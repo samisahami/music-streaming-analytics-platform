@@ -92,6 +92,8 @@ def load_streams():
     query = """
     SELECT *
     FROM BRONZE.INT_STREAMS_ENRICHED
+    ORDER BY stream_timestamp DESC
+    LIMIT 100000
     """
 
     streams = pd.read_sql(query, get_engine())
