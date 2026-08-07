@@ -1,5 +1,9 @@
 {{ config(
-    materialized='table'
+
+    materialized='incremental',
+
+    unique_key='event_id'
+
 ) }}
 
 with source_streams as (
@@ -16,6 +20,15 @@ with source_streams as (
         completed_flag
 
     from {{ ref('int_streams_enriched') }}
+    
+{% if is_incremental() %}
+where stream_timestamp >
+(
+    select max(stream_timestamp)
+    from {{ this }}
+)
+{% endif %}
+
 
 ),
 
