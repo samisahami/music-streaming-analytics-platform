@@ -105,6 +105,19 @@ def load_streams():
 
     return streams
 
+@st.cache_data(ttl=600)
+def load_user_engagement():
+    """
+    Load the business-ready user engagement mart produced by dbt.
+    """
+
+    query = """
+    SELECT *
+    FROM BRONZE.MART_USER_ENGAGEMENT
+    """
+
+    return pd.read_sql(query, get_engine())
+
 
 @st.cache_data(ttl=600)
 def load_user_features():
@@ -363,6 +376,8 @@ st.markdown(
 
 try:
     streams_df = load_streams()
+    user_engagement_df = load_user_engagement()
+
 
     if streams_df.empty:
         st.warning(
@@ -374,6 +389,20 @@ try:
     streams_df = streams_df.dropna(
         subset=["stream_timestamp"]
     ).copy()
+
+    st.subheader("User Engagement Overview")
+
+    kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+
+    avg_streams_per_user = user_engagement_df["total_streams"].mean()
+    avg_completion_rate = user_engagement_df["completion_rate"].mean() * 100
+    avg_skip_rate = user_engagement_df["skip_rate"].mean() * 100
+    avg_active_days = user_engagement_df["active_days"].mean()
+
+    kpi1.metric("Avg Streams / User", f"{avg_streams_per_user:,.1f}")
+    kpi2.metric("Avg Completion Rate", f"{avg_completion_rate:.1f}%")
+    kpi3.metric("Avg Skip Rate", f"{avg_skip_rate:.1f}%")
+    kpi4.metric("Avg Active Days", f"{avg_active_days:,.1f}")
 
     # -----------------------------------------------------
     # SIDEBAR FILTERS

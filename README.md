@@ -276,6 +276,19 @@ Potential future improvements include:
 - Data observability platform
 
 ---
+# 📈 dbt Project Lineage
+
+Complete end-to-end lineage from Bronze ingestion through staging, intermediate transformations, and analytical models.
+
+![dbt Project Lineage](docs/dbt_lineage.png)
+
+---
+
+# 🏗️ Business Mart Lineage
+
+Example lineage showing how raw streaming events are transformed into business-ready analytical marts through the star schema.
+
+![Business Mart Lineage](docs/dbt_lineage_marts.png)
 
 # 👨‍💻 Author
 
