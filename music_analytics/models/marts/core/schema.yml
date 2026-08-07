@@ -1,0 +1,116 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: One row per user with the users current subscription type.
+    columns:
+      - name: user_id
+        description: Unique identifier for a streaming user.
+        tests:
+          - not_null
+          - unique
+
+      - name: subscription_type
+        description: Current subscription tier for the user.
+        tests:
+          - not_null
+          - accepted_values:
+               arguments:
+                 values: ['Free', 'Premium']
+
+  - name: dim_tracks
+    description: One row per track with descriptive music metadata.
+    columns:
+      - name: track_id
+        description: Unique identifier for a track.
+        tests:
+          - not_null
+          - unique
+
+      - name: track_name
+        description: Track title.
+        tests:
+          - not_null
+
+      - name: artists
+        description: Artist name or artist list associated with the track.
+        tests:
+          - not_null
+
+      - name: album_name
+        description: Album associated with the track.
+
+      - name: track_genre
+        description: Genre associated with the track.
+
+      - name: explicit
+        description: Indicates whether the track contains explicit content.
+        tests:
+          - not_null
+  - name: fct_streams
+    description: One row per music streaming event.
+    columns:
+      - name: event_id
+        description: Unique identifier for a streaming event.
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        description: User associated with the streaming event.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_users')
+                field: user_id
+
+      - name: track_id
+        description: Track associated with the streaming event.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_tracks')
+                field: track_id
+
+      - name: stream_timestamp
+        description: Timestamp when the stream occurred.
+        tests:
+          - not_null
+
+      - name: stream_date
+        description: Calendar date derived from the stream timestamp.
+        tests:
+          - not_null
+
+      - name: device_type
+        description: Device used for the stream.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Desktop', 'Mobile', 'Smart Speaker', 'Tablet']
+
+      - name: subscription_type
+        description: Subscription tier observed at the time of the stream.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Free', 'Premium']
+
+      - name: stream_duration_seconds
+        description: Duration of the stream in seconds.
+        tests:
+          - not_null
+
+      - name: skip_flag
+        description: Indicates whether the stream was skipped.
+        tests:
+          - not_null
+
+      - name: completed_flag
+        description: Indicates whether the stream was completed.
+        tests:
+          - not_null
